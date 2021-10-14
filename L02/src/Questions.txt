@@ -1,0 +1,38 @@
+Question 2.3.1:
+struct
+
+Question 2.7.1:
+2
+
+Question 2.7.2:
+It would be something like:
+    type Int = 2147483647 | 2147483646 | (...) | 1 | 0 | -1 | (...) | -2147483647 | -2147483648
+But this syntax is invalid. The elm compiler expects an uppercase letter, instead it gets a number.
+
+Also, I found out that elm classifies all numbers from 0xfffffffffffffff to it's negative counterpart as Int,
+if it is specified as the argument or return type in a function. Very curious.
+
+Question 2.7.3:
+() and {} have the cardinality of 1. The only value is (), respectively {}. They are the tuple and record types and the
+reason why the list isn't one of them is that these can't be empty, while the list can.
+Farther proof is that this function will compile for {} and () types without problem, and adding a wildcard case will
+give a redundancy error.
+
+foo : {} -> String
+foo a = case a of
+    {} -> "Good"
+
+Never has the cardinality of 0. It has no values. It is used to restrict arguments, only a type that includes Never
+will work for a function that requires a Never type argument.
+A bit of help from the friendly documentation, with a ctrl+f "Never":
+https://package.elm-lang.org/packages/elm/core/latest/Basics#never
+
+We can declare a cardinality 1 type, but we can't declare a cardinality 0 type because the syntax will not allow us,
+and it seems kind of redundant.
+
+Proof for card 1, this code will give no errors:
+
+type One = Only
+foo : One -> String
+foo e = case e of
+    Only -> "Good"
