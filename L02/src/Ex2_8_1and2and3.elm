@@ -1,4 +1,4 @@
-module Ex2_8_1and2 exposing (..)
+module Ex2_8_1and2and3 exposing (..)
 
 type Die = One | Two | Three | Four | Five | Six
 
