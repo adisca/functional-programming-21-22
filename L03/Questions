@@ -1,0 +1,59 @@
+Question 3.1.1:
+Generic?
+
+
+Question 3.1.2:
+Inheritance. If a class is required we can only supply that class or a subclass of it.
+
+
+Question 3.2.1:
+Floats are numbers primitives so a structural quality is checked.
+(0/0) gives NaN, a float
+(0/0) == (0/0) gives False
+This NaN is a special value so NaN == NaN will always give false. I tested this with a = (0 / 0) then b = a only to find
+out that a == b also gives False, so NaN == NaN is not checked with neither reference nor structural equality, returning
+False always.
+
+
+Question 3.3.1:
+Null pointer exception
+
+
+Question 3.3.2:
+No, not any given pointer. I am not sure in C++, but you can use a pointer that is not allowed to be null
+
+
+Question 3.3.3:
+Idk
+
+
+Question 3.3.4:
+The advantage of the string is that it can offer a full explanation of the error, while the disadvantage of the enum is
+that it can only offer the error name and you would need to interpret that error in another function/code sequence in
+order to explain it in the program or outside information with a documentation.
+
+The interpretation can, however be an advantage. If you want to change a message, you would only have to change it in
+one place, since it is encapsulated. For the string approach, you would need to manually change the message everywhere.
+
+The enum has another disadvantage, the fact that you must define a type for it, which could burden your code and bring
+the risk of shadowing or impact the readability of the program. The strings are far more readable and don't require
+extra definitions.
+
+I would use the string approach when there is a small number of possible errors or when each error can occur in one or
+two places. The enum approach feels more suited for a bigger program where the errors can repeat in different locations.
+
+
+Question 3.4.1:
+For head insertion we have O(1)
+
+For tail insertion we have O(n). Using something like: list ++ [elem] would give us O(1), but that excludes the
+complexity of ++ operation, which, if it works by parsing the first list and adding each element to the second, would
+still give us a O(n) complexity
+
+For indexed extraction we have O(n)
+
+
+Question 3.4.2:
+Suppose a has length n.
+The complexity will be O(n) to which we must add the complexity of the reverse function, which is also O(n), giving us
+a final complexity of O(n)
