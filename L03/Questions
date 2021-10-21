@@ -24,8 +24,7 @@ No, not any given pointer. I am not sure in C++, but you can use a pointer that 
 
 
 Question 3.3.3:
-Idk
-
+Elm's and Haskell's Maybe. Java's, Scala's and Swift's Optional.
 
 Question 3.3.4:
 The advantage of the string is that it can offer a full explanation of the error, while the disadvantage of the enum is
