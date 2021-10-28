@@ -1,0 +1,5 @@
+Question 4.1.1:
+With an abstract class/interface
+
+Question 4.4.1:
+foldl is tail recursive, but foldr is not
