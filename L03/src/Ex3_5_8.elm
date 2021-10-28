@@ -1,13 +1,18 @@
 module Ex3_5_8 exposing (..)
-import Shape exposing (Shape, safeArea)
+import Shape exposing (Shape, InvalidShapeError, safeAreaEnum)
 
 -- to test in repl you might need to also import Shape exposing (..)
 
-cmpShapes : Shape -> Shape -> Result String Order
-cmpShapes sh1 sh2 =
-    case safeArea sh1 of
-        Ok x ->
-            case safeArea sh2 of
-                Ok y -> Ok (compare x y)
-                Err str -> Err ("Invalid input for right shape: " ++ str)
-        Err str -> Err ("Invalid input for left shape: " ++ str)
+totalArea : List Shape -> Result (Int, InvalidShapeError) Float
+totalArea l =
+    let
+        totalAreaHelper : List Shape -> Float -> Int -> Result (Int, InvalidShapeError) Float
+        totalAreaHelper lH sum i =
+            case lH of
+                [] -> Ok sum
+                x::xs ->
+                    case safeAreaEnum x of
+                        Ok value -> totalAreaHelper xs (sum + value) (i  + 1)
+                        Err error -> Err (i, error)
+    in
+        totalAreaHelper l 0 0
