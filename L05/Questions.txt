@@ -1,0 +1,30 @@
+Question 5.2.1:
+The function composition returns a new function, and it is also applied only between 2 functions.
+A pipeline returns the result of the function, and it is applied between a function and an argument for it.
+
+Question 5.2.2:
+We should use pipes when we are interested in passing a value through one or more functions and get the result at the
+end. Also, it might not make sense to compose a new function with >>, as the functions applied might have very different
+meanings.
+
+Function composition should be used when we focus on "creating" a new function, when the previous ones logically
+function as one, or if we want to reuse it as it is easier to copy. Also, function compositions are a must when an
+argument is a function which, in our case, would be 2 or more functions we want to give as one.
+
+Question 5.2.3:
+Instead of composing a function out of other functions, we could take the last argument of the first function that gets
+executed (in f >> g and g << f that would be f) and pipe it through the first function, then pipe that through the
+second and so on.
+Ex:
+f >> g >> (h y x)
+Can be written as:
+x |> f |> g |> h y
+
+To translate the pipelines in function compositions we need to take the first function that gets executed and compose it
+with the second and so on, and then apply that new function to the value by writing it as the last argument of the first
+function to be executed (or better yet, as the only argument to the composed function by putting the composition in
+parentheses).
+Ex:
+x |> f |> g |> h y
+Can be written as:
+(f >> g >> h y) x
