@@ -1,0 +1,10 @@
+Question 6.5.1:
+update, model, view
+
+Question 6.5.2:
+The commands are used to interact with the outside world, while the messages can only interact within the program. View
+can't use commands, only messages, therefore it can't change the model, but update can use commands, reason why it can
+modify the model.
+
+Question 6.5.3:
+Executing the task of the command; and returning a success or failure message
